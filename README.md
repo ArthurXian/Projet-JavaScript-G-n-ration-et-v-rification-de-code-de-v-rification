@@ -43,4 +43,4 @@ nom-du-projet/
 │
 ├── index.html         # Fichier HTML principal
 └── README.md          # Ce fichier de documentation
-![image](https://github.com/user-attachments/assets/44d365ba-e2f0-48db-9c17-d62089733be7)
+
