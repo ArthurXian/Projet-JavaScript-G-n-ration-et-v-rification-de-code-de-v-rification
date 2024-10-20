@@ -1,35 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Page de vérification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .v_code {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .code_show {
+            margin-bottom: 15px;
+        }
+
+        .code {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border-radius: 4px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        #linkbt {
+            font-size: 14px;
+            color: #007bff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #linkbt:hover {
+            text-decoration: underline;
+        }
+
+        .input_code {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input_code label {
+            display: inline-block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .input_code input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #Button1 {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        #Button1:hover {
+            background-color: #218838;
+        }
+
+        #text_show {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            display: block;
+        }
+    </style>
 </head>
+
 <body>
     <div class="v_code">
         <div class="code_show">
             <span class="code" id="checkCode">adf34y</span>
-            <a id="linkbt">看不清换一张</a>
+            <a id="linkbt">Changer si illisible</a>
         </div>
         <div class="input_code">
-            <label for="inputCode">验证码:</label>
-            <input type="text" id="inputCode" />
+            <label for="inputCode">Code de vérification :</label>
+            <input type="text" id="inputCode" placeholder="Entrez le code" />
             <span id="text_show"></span>
         </div>
-        <input id="Button1" type="button" value="确定" />
+        <input id="Button1" type="button" value="Valider" />
     </div>
     <script>
-        //生成验证码
-        //6位数 内容：0-9+a-f 随机生成六位，内容必须是0-9+a-f的字符串
-        //数组 下标 0，1，2....从数组当中 随机下标 0-15位
-        var arr = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
-        for (var i = 0; i < 6; i++) {
-            Math.random*(15-0)+0
+        // Générer le code de vérification
+        // 6 caractères aléatoires (0-9 + a-f)
+        window.onload = function () {
+            document.getElementById('checkCode').innerText = getCode();
+
+            function getCode() {
+                var arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+                var str = '';
+                for (var i = 0; i < 6; i++) {
+                    var num = Math.round(Math.random() * 15);
+                    str += arr[num];
+                }
+                return str;
+            }
+
+            // Changer le code lorsqu'on clique sur le lien
+            document.getElementById('linkbt').onclick = function () {
+                document.getElementById('checkCode').innerText = getCode();
+            }
+
+            // Vérifier l'entrée de l'utilisateur
+            document.getElementById('Button1').onclick = function () {
+                var code = document.getElementById('checkCode').innerText;
+                var inputCode = document.getElementById('inputCode').value;
+                if (code != inputCode) {
+                    alert('Le code que vous avez entré est incorrect');
+                    document.getElementById('inputCode').value = '';
+                    return false;
+                } else {
+                    alert('Le code est correct');
+                }
+            }
         }
-        
     </script>
 </body>
+
 </html>
+
+
 
   
   
