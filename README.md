@@ -2,6 +2,21 @@
 
 Ce projet est une simple page web permettant de générer un code de vérification aléatoire et de le comparer avec l'entrée utilisateur. Le code de vérification est composé de caractères alphanumériques (0-9 et a-f) et permet à l'utilisateur de valider un formulaire avec le bon code.
 
+
+## Capture d'écran principale
+
+![Capture principale](./images%20de%20la%20fin/principal.png)
+
+## Exemple de code incorrect
+
+![Code incorrect](./images%20de%20la%20fin/incorrect.png)
+
+## Exemple de succès
+
+![Succès](./images%20de%20la%20fin/succes.png)
+
+
+
 ## Fonctionnalités
 
 - Génération de codes de vérification aléatoires (6 caractères).
