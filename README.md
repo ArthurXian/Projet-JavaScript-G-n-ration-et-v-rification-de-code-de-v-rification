@@ -59,7 +59,6 @@ nom-du-projet/
 ├── index.html         # Fichier HTML principal
 └── README.md          # Ce fichier de documentation
 
-
 #✨ Notes de base sur JavaScript 🌟
 ## 📌 1. Mot-clé `var`
 - **`var`** : Utilisé pour déclarer une variable.
@@ -216,6 +215,9 @@ nom-du-projet/
     ```
 
 }
+
+
+
 
 
 
